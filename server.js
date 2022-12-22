@@ -1,6 +1,6 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const { OAuth2Client } = require("google-auth-library");
+const express = require('express');
+const dotenv = require('dotenv');
+const { OAuth2Client } = require('google-auth-library');
 
 dotenv.config();
 const client = new OAuth2Client(process.env.REACT_APP_GOOGLE_CLIENT_ID);
@@ -17,7 +17,7 @@ function upsert(array, item) {
   else array.push(item);
 }
 
-app.post("/api/google-login", async (req, res) => {
+app.post('/api/google-login', async (req, res) => {
   const { token } = req.body;
   const ticket = await client.verifyIdToken({
     idToken: token,
